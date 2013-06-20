@@ -16,6 +16,9 @@ class VerifyLogin extends CI_Controller {
 
    $this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
    $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean|callback_check_database');
+   $this->form_validation->set_rules('url', 'url', 'trim|required|xss_clean');
+
+   $url = $this->input->post('url');
 
    if($this->form_validation->run() == FALSE)
    {
@@ -24,12 +27,12 @@ class VerifyLogin extends CI_Controller {
      $data['event'] = $this->event->get_event();
          $data['status']="wrong";
          
-     $this->load->view('home', $data);
+     $this->load->view($url, $data);
    }
    else
    {
      //Go to private area
-     redirect('home', 'refresh');
+     redirect($url, 'refresh');
    }
 
  }
