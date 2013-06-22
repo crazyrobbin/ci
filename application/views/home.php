@@ -5,13 +5,13 @@ include("login_qtiyapa.php");
 <div id="sticky-anchor"></div>
 <div id="sticky" style="opacity:0.8">
 <ul class="button-group radius even-7">
-  <li><a href="<?php echo base_url(); ?>" class="button">Home</a></li>
-  <li><a href="#" class="button">Tutorial</a></li>
-  <li><a href="#" class="button">Projects</a></li>
-  <li><a href="#" class="button">Achivements</a></li>
-  <li><a href="#" class="button">Contact</a></li>
-  <li><a href="http://localhost/ci/forum" class="button">Forum</a></li>
-  <li><a href="#" class="button">Online<font style="visibility:hidden">_</font>Judge</a></li>
+  <li><a class="button" onclick="makeRequest('home/home1')">Home</a></li>
+  <li><a class="button" onclick="makeRequest('home/tutorial')">Tutorial</a></li>
+  <li><a class="button" onclick="makeRequest('home/project')">Projects</a></li>
+  <li><a class="button" onclick="makeRequest('home/achivement')">Achivements</a></li>
+  <li><a class="button" onclick="makeRequest('home/contact')">Contact</a></li>
+  <li><a href="<?php echo base_url('forum'); ?>" class="button">Forum</a></li>
+  <li><a href="http://www2.cse.iitk.ac.in:81/newonj/about.php" target="_blank" class="button">Online<font style="visibility:hidden">_</font>Judge</a></li>
 </ul>
 
 </div>
@@ -32,7 +32,7 @@ include("login_qtiyapa.php");
 </ul>
 <?php endforeach ?>
   </div>
-  <div class="large-6 columns">
+  <div class="large-6 columns" id="standard">
 <div class="panel radius" style="opacity:1;">
 <b>Programming Club often pronounced as pclub is one of the club of IIT Kanpur under SnT.
 If you are interested in coding then this club is right place for you.
@@ -87,7 +87,16 @@ Online Judge Rank
 </div>
 
 
-   
+       <script>
+        function makeRequest(url){
+    //        $('#preloader').show();
+            $.get(url, function(data) {
+                $('#standard').html(data);
+           //     $('#preloader').hide();
+            });
+        }
+
+    </script>
 
  </body>
 </html>
