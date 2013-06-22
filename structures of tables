@@ -9,16 +9,33 @@ emailid
 
 
 *event*
-id(tinyint 4)
-title(varchar 50)
-description(text)
-venue(varchar 40)
-date (date )
+id
+title
+date
+description
+venue
 
 *tutorial*
 id
-topic (varchar 50)
-description(text)
-link(varchar(100))
+topic
+description
+link
 
+*project*
+id
+name
+link
+
+*contact*
+id
+name
+pic
+phone
+address
+post
+
+*achivement*
+id
+topic
+description
 
